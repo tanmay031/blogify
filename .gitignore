@@ -1,0 +1,57 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+*.pot
+*.py[cod]
+*.sqlite3
+db.sqlite3
+# If using SQLite database
+
+# If using MySQL database
+*.mysql
+# If using PostgreSQL database
+*.psql
+# If using PostGIS database
+*.postgis
+
+# Django migrations
+**/migrations/*
+
+# Django static files
+staticfiles/
+
+# Local development
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Virtual environments
+.env
+*.env
+
+# pipenv
+Pipfile
+Pipfile.lock
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/

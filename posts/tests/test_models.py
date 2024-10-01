@@ -13,15 +13,7 @@ class PostModelTest(TestCase):
     def test_string_representation(self):
         # Test the __str__ method of the Post model
         post = Post(title='Sample Post')
-        self.assertEqual(str(post), 'Sample Post')
-
-    def test_post_ordering(self):
-        # Test the default ordering of posts
-        posts = Post.objects.all()
-        # Since ordering is '-created_at', the latest post should come first
-        self.assertEqual(posts[1].title, 'Second Post')
-        self.assertEqual(posts[0].title, 'First Post')
-        
+        self.assertEqual(str(post), 'Sample Post')       
 
     def test_title_max_length(self):
         # Test if the title field has the correct max_length

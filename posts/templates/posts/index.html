@@ -17,27 +17,44 @@
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8 mt-3 left">
-            <!-- List of Posts -->
-            {% for post in posts %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">Created on: {{ post.created_at|date:"F d, Y" }}</p>
-                    <p class="card-text">{{ post.content|slice:":200" }}...</p>
-                    <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More &rarr;</a>
+            <!-- Button to Add a New Post -->
+
+    
+            <!-- Check if there are posts available -->
+            {% if posts %}
+                <!-- List of Posts -->
+                {% for post in posts %}
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text text-muted h6">Created on: {{ post.created_at|date:"F d, Y" }}</p>
+                        <p class="card-text">{{ post.content|slice:":200" }}...</p>
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More &rarr;</a>
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
-
-            <!-- Include Pagination and Posts Per Page Dropdown -->
-            {% include 'posts/pagination_controls.html' %}
+                {% endfor %}
+    
+                <!-- Include Pagination and Posts Per Page Dropdown -->
+                {% include 'posts/pagination_controls.html' %}
+            {% else %}
+                <!-- Message when no posts are available -->
+                <div class="alert alert-warning text-center" role="alert">
+                    <h4 class="alert-heading">No Posts Available</h4>
+                    <p>It seems there are currently no posts available. Please check back later!</p>
+                    <hr>
+                    <p class="mb-0">In the meantime, you can explore other sections of the website.</p>
+                </div>
+            {% endif %}
         </div>
-
+    
         <!-- Optional Sidebar Section (if you have a sidebar.html file) -->
         {% block sidebar %} 
         {% include 'posts/sidebar.html' %}
         {% endblock sidebar %}
     </div>
+    
+    
+    
 </div>
 
 <!-- JavaScript to handle dropdown change -->

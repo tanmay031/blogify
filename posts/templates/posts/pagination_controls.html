@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-between align-items-center">
+    <!-- Pagination Controls -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1&per_page={{ page_obj.paginator.per_page }}" aria-label="First">
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}&per_page={{ page_obj.paginator.per_page }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="page-item active">
+                <span class="page-link">{{ num }}</span>
+            </li>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ num }}&per_page={{ page_obj.paginator.per_page }}">{{ num }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}&per_page={{ page_obj.paginator.per_page }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&per_page={{ page_obj.paginator.per_page }}" aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Dropdown for Posts Per Page -->
+    <div class="form-group ml-3">
+        <label for="postsPerPage">Posts per page:</label>
+        <select id="postsPerPage" class="form-control d-inline-block w-auto" onchange="updatePostsPerPage(this.value)">
+            <option value="1" {% if request.GET.per_page == '1' %}selected{% endif %}>1</option>
+            <option value="2" {% if request.GET.per_page == '2' %}selected{% endif %}>2</option>
+            <option value="4" {% if request.GET.per_page == '4' %}selected{% endif %}>4</option>
+            <option value="8" {% if request.GET.per_page == '8' %}selected{% endif %}>8</option>
+        </select>
+    </div>
+</div>

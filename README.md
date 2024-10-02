@@ -2,7 +2,7 @@
 # Blogify : A Simple Blog Application
 
 A simple blog application built using Django and Django REST Framework. The application provides API endpoints for creating, retrieving, updating, and deleting blog posts, with pagination support for listing posts.
-
+Additionally, the application features a web interface for displaying a list of posts and detailing individual posts.
 
 ## Installation
 ### Prerequisites

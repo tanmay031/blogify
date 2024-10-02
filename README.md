@@ -38,7 +38,7 @@ Once the services are running, open a new terminal window and run the following 
 
 1. **Migrate the Database**:
    ```bash
-   sudo docker-compose run web python manage.py migrate
+   docker-compose run web python manage.py migrate
    ```
 
 ### Step 4: Create a Superuser
@@ -46,7 +46,7 @@ Once the services are running, open a new terminal window and run the following 
 To access the Django admin panel, create a superuser account by running:
 
 ```bash
-sudo docker-compose run web python manage.py createsuperuser
+docker-compose run web python manage.py createsuperuser
 ```
 
 Follow the prompts to set up the superuser credentials.
@@ -69,7 +69,7 @@ After completing the above steps, you can access the application as follows:
 If you have tests configured, you can run them using:
 
 ```bash
-sudo docker-compose run web python manage.py test posts.tests
+docker-compose run web python manage.py test
 ```
 
 This command will build the test environment and run your tests.

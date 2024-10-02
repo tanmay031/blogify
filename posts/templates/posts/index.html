@@ -1,0 +1,69 @@
+{% extends "posts/base.html" %}
+{% block content %}
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class="my-4 mt-3 text-black">Welcome to Blogify, The Blog Spaces</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            <!-- Button to Add a New Post -->
+
+    
+            <!-- Check if there are posts available -->
+            {% if posts %}
+                <!-- List of Posts -->
+                {% for post in posts %}
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text text-muted h6">Created on: {{ post.created_at|date:"F d, Y" }}</p>
+                        <p class="card-text">{{ post.content|slice:":200" }}...</p>
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}
+    
+                <!-- Include Pagination and Posts Per Page Dropdown -->
+                {% include 'posts/pagination_controls.html' %}
+            {% else %}
+                <!-- Message when no posts are available -->
+                <div class="alert alert-warning text-center" role="alert">
+                    <h4 class="alert-heading">No Posts Available</h4>
+                    <p>It seems there are currently no posts available. Please check back later!</p>
+                    <hr>
+                    <p class="mb-0">In the meantime, you can explore other sections of the website.</p>
+                </div>
+            {% endif %}
+        </div>
+    
+        <!-- Optional Sidebar Section (if you have a sidebar.html file) -->
+        {% block sidebar %} 
+        {% include 'posts/sidebar.html' %}
+        {% endblock sidebar %}
+    </div>
+    
+    
+    
+</div>
+
+<!-- JavaScript to handle dropdown change -->
+<script>
+    function updatePostsPerPage(postsPerPage) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('per_page', postsPerPage);
+        url.searchParams.set('page', 1);  // Reset to the first page
+        window.location.href = url;
+    }
+</script>
+{% endblock %}

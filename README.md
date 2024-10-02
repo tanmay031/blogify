@@ -38,7 +38,7 @@ Once the services are running, open a new terminal window and run the following 
 
 1. **Create Migrations**:
    ```bash
-   docker-compose run web python manage.py makemigrations blogapp
+   docker-compose run web python manage.py makemigrations posts
    ```
 
 2. **Migrate the Database**:
@@ -62,11 +62,11 @@ Follow the prompts to set up the superuser credentials.
 After completing the above steps, you can access the application as follows:
 
 - **Django Admin Interface**: 
-  - Open your web browser and navigate to [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) to access the Django admin interface.
+  - Open your web browser and navigate to <a href="http://127.0.0.1:8000/admin/" target="_blank">http://127.0.0.1:8000/admin/</a> to access the Django admin interface.
   - Log in using the superuser credentials you created.
 
 - **Blog Page**: 
-  - To view the blog posts, navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+  - To view the blog posts, navigate to <a href="http://127.0.0.1:8000/" target="_blank">http://127.0.0.1:8000/</a>.
 
 
 ### Step 6: (Optional) Run Tests

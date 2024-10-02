@@ -8,5 +8,3 @@ services:
       - .:/app  # Mount project files
     ports:
       - "8000:8000"
-    environment:
-      - DJANGO_ENV=production

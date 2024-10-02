@@ -25,7 +25,7 @@ cd blogify
 In the project directory, run the following command to build the Docker images and start the services:
 
 ```bash
-docker-compose up --build
+sudo docker-compose up --build
 ```
 
 This command will:
@@ -38,12 +38,12 @@ Once the services are running, open a new terminal window and run the following 
 
 1. **Create Migrations**:
    ```bash
-   docker-compose run web python manage.py makemigrations posts
+   sudo docker-compose run web python manage.py makemigrations posts
    ```
 
 2. **Migrate the Database**:
    ```bash
-   docker-compose run web python manage.py migrate
+   sudo docker-compose run web python manage.py migrate
    ```
 
 ### Step 4: Create a Superuser
@@ -51,7 +51,7 @@ Once the services are running, open a new terminal window and run the following 
 To access the Django admin panel, create a superuser account by running:
 
 ```bash
-docker-compose run web python manage.py createsuperuser
+sudo docker-compose run web python manage.py createsuperuser
 ```
 
 Follow the prompts to set up the superuser credentials.

@@ -36,12 +36,7 @@ This command will:
 
 Once the services are running, open a new terminal window and run the following commands:
 
-1. **Create Migrations**:
-   ```bash
-   sudo docker-compose run web python manage.py makemigrations posts
-   ```
-
-2. **Migrate the Database**:
+1. **Migrate the Database**:
    ```bash
    sudo docker-compose run web python manage.py migrate
    ```
@@ -74,7 +69,7 @@ After completing the above steps, you can access the application as follows:
 If you have tests configured, you can run them using:
 
 ```bash
-docker-compose -f docker-compose.test.yml up --build
+sudo docker-compose run web python manage.py test posts.tests
 ```
 
 This command will build the test environment and run your tests.

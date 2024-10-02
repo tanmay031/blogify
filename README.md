@@ -151,4 +151,7 @@ If an invalid page number is requested, the API returns a custom error message:
 ## Design Decisions
 - **Custom Pagination:** Implemented a custom pagination class to empower clients to specify the `per_page` parameter, allowing them to control the number of posts displayed on each page. This feature enhances user experience by providing flexibility in content consumption.
 - **REST Framework:** Utilized Django REST Framework's `ModelViewSet` to simplify the implementation of CRUD operations.
+  
+## Note
+- This project utilizes SQLite, Django's default database, for efficient data storage."
 

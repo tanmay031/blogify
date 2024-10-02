@@ -25,7 +25,7 @@ cd blogify
 In the project directory, run the following command to build the Docker images and start the services:
 
 ```bash
-sudo docker-compose up --build
+docker-compose up --build
 ```
 
 This command will:
